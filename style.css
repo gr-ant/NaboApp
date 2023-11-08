@@ -1,0 +1,113 @@
+/* Import Roboto font family from a CDN or your project's assets */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap');
+
+/* Reset some default styles for better consistency across browsers */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Apply Roboto font to all text */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Center headings */
+h1, p {
+    text-align: center;
+}
+
+/* Style headings and other elements as needed */
+h1 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+p {
+    /* Add styles for paragraphs */
+}
+
+/* Style the bottom toolbar */
+.bottom-toolbar {
+    background-color: #ffffff; /* White background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center the buttons vertically */
+    padding: 10px;
+    position: fixed; /* Fixed position at the bottom */
+    bottom: 0; /* Lock to the bottom of the screen */
+    width: 100%; /* Full width */
+}
+
+.bottom-toolbar img {
+    transform: scale(2); /* Double the size of the images */
+}
+
+/* Style the buttons in the bottom toolbar */
+.bottom-toolbar button {
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text color */
+    border: none; /* Remove button borders */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    flex-grow: 1; /* Equal spacing between buttons */
+    margin: 0; /* No margins between buttons */
+    text-align: center; /* Center button text */
+}
+
+/* Style the top toolbar */
+.top-toolbar {
+    background-color: #ffffff; /* White background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center the buttons vertically */
+    padding: 10px;
+    position: fixed; /* Fixed position at the top */
+    top: 0; /* Lock to the top of the screen */
+    width: 100%; /* Full width */
+}
+
+.top-toolbar img {
+    transform: scale(2); /* Double the size of the images */
+}
+
+/* Style the buttons in the top toolbar */
+.top-toolbar button {
+    background-color: #ffffff; /* White background */
+    color: #000000; /* Black text color */
+    border: none; /* Remove button borders */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    flex-grow: 1; /* Equal spacing between buttons */
+    margin: 0; /* No margins between buttons */
+    text-align: center; /* Center button text */
+}
+
+/* Main content styling */
+.main-content {
+    flex-grow: 1; /* Allow the content to fill the available space */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+}
+
+.image-container {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+    max-height: calc(100vh - 100px); /* Adjust the height to fit between toolbars */
+    overflow: hidden; /* Hide overflow if the image is larger */
+}
+
+.main-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+/* ... Your existing CSS styles ... */
