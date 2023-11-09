@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nabo🌱</title>
+    <title>Nabo</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="app.js"></script>
     <script src="controller.js"></script>
@@ -17,6 +17,13 @@
         <button><img src="icons\question.svg"></button>
     </div>
     <div class="main-content">
+        <div class="landing-container" ng-if="showLanding">
+            <div class="logo-container">
+                <img src="Images/turnip.png" alt="Nabo Logo" class="logo">
+            </div>
+            <h1>Welcome to Nabo</h1>
+            <p>Your personal guide to the city's best experiences.</p>
+        </div>
         <div ng-if="showProfile" class="profile-content">
             <center><img src="Images/profile.jfif"</center>
             <div class="profile-row">
@@ -43,6 +50,7 @@
         </div>        
         <div ng-if="showExplore" class="explore-content">
             <div class="location-card">
+                <h1 class="overlay-heading">Two Social</h1>
                 <img src="images/2social.jpeg" alt="Location" class="location-image">
                 <button class="floating-button like-button">
                     <img src="icons/add-circle.svg" alt="Like">

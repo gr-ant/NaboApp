@@ -64,14 +64,12 @@ h1 {
     justify-content: center;
     align-items: center;
     height: calc(100vh - 120px); /* Adjusted for toolbar heights */
-    padding-top: 80px;
-    padding-bottom: 80px;
     box-sizing: border-box;
 }
 
 /* Chat List Styles */
 .chat-list {
-    width: 90%;
+    width: 95%;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -167,7 +165,6 @@ button:active {
     height: calc(100vh - 120px); /* Adjust based on the combined height of the toolbars */
     position: relative;
     overflow: hidden; /* Hide parts of the image that overflow */
-    padding-top: 30%;
 }
 
 .location-image {
@@ -185,9 +182,12 @@ button:active {
 }
 
 .like-button, .dislike-button {
-    bottom: 10px;
-    width: 50px;
+    bottom: 10%;
+    width: 100px;
     height: 50px;
+    padding-right: 5%;
+    padding-left: 5%;
+    animation: float 1s ease-in-out infinite; /* Apply the animation */
 }
 
 .like-button {
@@ -201,4 +201,71 @@ button:active {
 .floating-button img {
     width: 100%;
     height: auto;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff; /* Soft background color */
+    color: #333; /* Primary text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.landing-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+}
+
+h1 {
+    color: #6d4c41; /* Warm tone for the heading */
+    margin-bottom: 10px;
+}
+
+p {
+    color: #6d4c41;
+    margin-bottom: 20px;
+}
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Adjust the value for more or less movement */
+    }
+}
+
+.logo {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+    animation: float 1.5s ease-in-out infinite; /* Apply the animation */
+}
+.image-container {
+    position: relative;
+    /* Other styles as necessary */
+}
+.overlay-heading {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    color: white; /* Assuming a light color for visibility */
+    opacity: 0.8; /* Adjust transparency as needed */
+    z-index: 2; /* Ensure it's above the image */
+    /* Additional styling as needed */
+}
+.location-image {
+    width: 100%;
+    /* Other styles as necessary */
 }
