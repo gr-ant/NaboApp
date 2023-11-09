@@ -16,15 +16,30 @@
         <button><img src="icons\question.svg"></button>
     </div>
     <div class="main-content">
-        <div ng-if="showProfile">
-            <!-- Profile Page Content -->
-            <img src="Images/profile.jfif" alt="Profile Picture">
-            <p>Name: {{ userName }}</p>
-            <p>Email: {{ userEmail }}</p>
-            <p>Age: {{ userAge }}</p>
-            <p>Home City: {{ userCity }}</p>
-            <p>Favorite Food: {{ userFood }}</p>
-        </div>
+        <div ng-if="showProfile" class="profile-content">
+            <center><img src="Images/profile.jfif"</center>
+            <div class="profile-row">
+                <label for="name">Name:</label>
+                <input type="text" id="name" ng-model="userProfile.name">
+            </div>
+            <div class="profile-row">
+                <label for="email">Email:</label>
+                <input type="email" id="email" ng-model="userProfile.email">
+            </div>
+            <div class="profile-row">
+                <label for="age">Age:</label>
+                <input type="number" id="age" ng-model="userProfile.age">
+            </div>
+            <div class="profile-row">
+                <label for="city">Home City:</label>
+                <input type="text" id="city" ng-model="userProfile.city">
+            </div>
+            <div class="profile-row">
+                <label for="food">Favorite Food:</label>
+                <input type="text" id="food" ng-model="userProfile.favoriteFood">
+            </div>
+            <button ng-click="saveProfile()">Save</button>
+        </div>        
         <div ng-if="showExplore" class="explore-content">
             <!-- Other content for Explore -->
         

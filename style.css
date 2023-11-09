@@ -171,28 +171,45 @@ p {
     font-size: 14px;
     color: #666;
 }
-.explore-content {
-    /* Assuming you want the main content to take the full height minus toolbars */
-    min-height: calc(100vh - 120px); /* Adjust 120px based on your toolbars' height */
+
+.profile-content {
+    max-width: 600px; /* Adjust width as needed */
+    margin: auto;
+    padding: 20px;
+}
+
+.profile-row {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Aligns child elements to start and end of the container */
+    margin-bottom: 10px;
 }
 
-.explore-buttons {
-    text-align: center; /* Center the buttons horizontally */
-    padding: 10px 0; /* Add some padding at the top and bottom */
+.profile-row label {
+    flex-basis: 30%; /* Adjust label width */
+    text-align: right;
+    margin-right: 10px;
+    align-self: center;
 }
 
-.explore-button {
-    background-color: #f9f9f9; /* Off-color white */
-    color: #000; /* Text color */
-    border: 1px solid #f9f9f9; /* Almost borderless, adjust color as needed */
-    padding: 10px 20px; /* Rectangular shape */
-    margin: 0 5px; /* Space between buttons */
+.profile-row input {
+    flex-grow: 1; /* Input fields take up remaining space */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.profile-content button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px; /* Slightly rounded corners */
+    margin-top: 20px; /* Add some space above the button */
+}
+button {
+    /* Existing button styles */
+    transition: transform 0.1s ease; /* Smooth transition for the transform */
 }
 
-/* Add any additional styling as needed */
+button:active {
+    transform: scale(0.95); /* Slightly reduce the scale of the button when active/pressed */
+}

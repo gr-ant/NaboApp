@@ -33,6 +33,15 @@ app.controller('MyController', function($scope) {
         { name: "Bob", lastMessage: "Thanks!"},
         // ... other chats
     ];
-    
-
+    $scope.userProfile = {
+        name: "John Doe",
+        email: "johndoe@example.com",
+        age: 30,
+        city: "New York",
+        favoriteFood: "Pizza"
+    };
+    $scope.saveProfile = function() {
+        console.log("Profile Saved:", $scope.userProfile);
+        
+    };
 });
