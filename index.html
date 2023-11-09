@@ -6,23 +6,48 @@
     <title>Nabo🌱</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="controller.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="MyController">
     <div class="top-toolbar">
         <button><img src="icons\cog.svg"></button>
         <h1>Nabo🌱</h1>
         <button><img src="icons\question.svg"></button>
     </div>
     <div class="main-content">
-        <div class="image-container">
-            <img src="Images/2social.jpeg" alt="Two Social Image">
+        <div ng-if="showProfile">
+            <!-- Profile Page Content -->
+            <img src="Images/profile.jfif" alt="Profile Picture">
+            <p>Name: {{ userName }}</p>
+            <p>Email: {{ userEmail }}</p>
+            <p>Age: {{ userAge }}</p>
+            <p>Home City: {{ userCity }}</p>
+            <p>Favorite Food: {{ userFood }}</p>
         </div>
-    </div>
+        <div ng-if="showExplore" class="explore-content">
+            <!-- Other content for Explore -->
+        
+            <!-- Container for buttons -->
+            <div class="explore-buttons">
+                <button class="explore-button">More</button>
+                <button class="explore-button">Save</button>
+            </div>
+        </div>
+        
+        <div ng-if="showChat" class="chat-list">
+            <div class="chat-item" ng-repeat="chat in chats">
+                <div class="chat-info">
+                    <h3 class="chat-name">{{ chat.name }}</h3>
+                    <p class="chat-last-message">{{ chat.lastMessage }}</p>
+                </div>
+            </div>
+        </div>        
+    </div>    
     <div class="bottom-toolbar">
-        <button><img src="icons\profile.svg"></button>
-        <button><img src="icons\explore.svg"></button>
-        <button><img src="icons\chat.svg"></button>
+        <button ng-click="openProfile()"><img src="icons\profile.svg"></button>
+        <button ng-click="openExplore()"><img src="icons\explore.svg"></button>
+        <button ng-click="openChat()"><img src="icons\chat.svg"></button>
     </div>
 </body>
 </html>
