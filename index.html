@@ -8,11 +8,12 @@
     <script src="app.js"></script>
     <script src="controller.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Images/turnip.png" type="image/png">
 </head>
 <body ng-app="myApp" ng-controller="MyController">
     <div class="top-toolbar">
         <button><img src="icons\cog.svg"></button>
-        <h1>Nabo🌱</h1>
+        <button><h1>Nabo</h1></button>
         <button><img src="icons\question.svg"></button>
     </div>
     <div class="main-content">
@@ -41,17 +42,22 @@
             <button ng-click="saveProfile()">Save</button>
         </div>        
         <div ng-if="showExplore" class="explore-content">
-            <!-- Other content for Explore -->
-        
-            <!-- Container for buttons -->
-            <div class="explore-buttons">
-                <button class="explore-button">More</button>
-                <button class="explore-button">Save</button>
+            <div class="location-card">
+                <img src="images/2social.jpeg" alt="Location" class="location-image">
+                <button class="floating-button like-button">
+                    <img src="icons/add-circle.svg" alt="Like">
+                </button>
+                <button class="floating-button dislike-button">
+                    <img src="icons/subtract-circle.svg" alt="Dislike">
+                </button>
             </div>
+            <!-- More location cards as needed -->
         </div>
+        
         
         <div ng-if="showChat" class="chat-list">
             <div class="chat-item" ng-repeat="chat in chats">
+                <img src="icons/happy-face.svg" class="chat-profile-pic">
                 <div class="chat-info">
                     <h3 class="chat-name">{{ chat.name }}</h3>
                     <p class="chat-last-message">{{ chat.lastMessage }}</p>

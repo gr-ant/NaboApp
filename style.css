@@ -10,145 +10,83 @@ html, body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* Apply Roboto font to all text */
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
 /* Center headings */
 h1, p {
     text-align: center;
 }
 
-/* Style headings and other elements as needed */
 h1 {
     font-size: 24px;
     margin-top: 20px;
 }
 
-p {
-    /* Add styles for paragraphs */
-}
-
-/* Style the bottom toolbar */
-.bottom-toolbar {
-    background-color: #ffffff; /* White background */
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Center the buttons vertically */
-    padding: 10px;
-    position: fixed; /* Fixed position at the bottom */
-    bottom: 0; /* Lock to the bottom of the screen */
-    width: 100%; /* Full width */
-}
-
-.bottom-toolbar img {
-    transform: scale(2); /* Double the size of the images */
-}
-
-/* Style the buttons in the bottom toolbar */
-.bottom-toolbar button {
-    background-color: #ffffff; /* White background */
-    color: #000000; /* Black text color */
-    border: none; /* Remove button borders */
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    flex-grow: 1; /* Equal spacing between buttons */
-    margin: 0; /* No margins between buttons */
-    text-align: center; /* Center button text */
-}
-
-/* Style the top toolbar */
-.top-toolbar {
-    background-color: #ffffff; /* White background */
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Center the buttons vertically */
-    padding: 10px;
-    position: fixed; /* Fixed position at the top */
-    top: 0; /* Lock to the top of the screen */
-    width: 100%; /* Full width */
-}
-
-.top-toolbar img {
-    transform: scale(2); /* Double the size of the images */
-}
-
-/* Style the buttons in the top toolbar */
-.top-toolbar button {
-    background-color: #ffffff; /* White background */
-    color: #000000; /* Black text color */
-    border: none; /* Remove button borders */
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    flex-grow: 1; /* Equal spacing between buttons */
-    margin: 0; /* No margins between buttons */
-    text-align: center; /* Center button text */
-}
-.circular-button {
-    background-color: #4CAF50; /* Green background */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 50%; /* Circular shape */
-}
-.main-content {
-    align-items: center;
-}
-/* Assuming each toolbar has a height of 50px */
-
+/* Toolbar Styles */
 .top-toolbar, .bottom-toolbar {
-    height: 50px; /* Set a fixed height for the toolbars */
-    /* Other styles... */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    height: 50px;
 }
 
-.main-content {
-    padding-top: 60px; /* Add padding to the top, slightly more than the height of the top toolbar */
-    padding-bottom: 60px; /* Add padding to the bottom, slightly more than the height of the bottom toolbar */
-    /* Other styles... */
-}
-.main-content {
-    display: flex; /* Enable Flexbox */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    flex-direction: column; /* Stack children vertically */
-    height: 100vh; /* Set the height to full viewport height */
-    padding-top: 60px; /* Adjust top padding to account for the top toolbar */
-    padding-bottom: 60px; /* Adjust bottom padding to account for the bottom toolbar */
-    box-sizing: border-box; /* Include padding in the height calculation */
+.top-toolbar {
+    top: 0;
+    border-bottom:#000000;
 }
 
-/* Adjust the height calculation to ensure content is centered between the toolbars */
-.main-content {
-    height: calc(100vh - 120px); /* Subtract the combined height of the top and bottom toolbars */
+.bottom-toolbar {
+    bottom: 0;
 }
+
+.top-toolbar img, .bottom-toolbar img {
+    transform: scale(2);
+}
+
+.top-toolbar button, .bottom-toolbar button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Main Content Styles */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px); /* Adjusted for toolbar heights */
+    padding-top: 80px;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+}
+
+/* Chat List Styles */
 .chat-list {
-    width: 100%; /* Full width of the container */
+    width: 90%;
     list-style: none;
     margin: 0;
     padding: 0;
+    padding-top: 30%;
 }
 
 .chat-item {
     display: flex;
     align-items: center;
-    width: 100%; /* Full width of each chat item */
-    border-bottom: 1px solid #ddd;
+    width: 100%;
+    border-bottom: 1px solid #040000;
 }
 
-/* Rest of your CSS for .chat-profile-pic, .chat-info, etc. */
-
 .chat-profile-pic {
+    padding: 1%;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -160,20 +98,23 @@ p {
     overflow: hidden;
 }
 
-.chat-name {
+.chat-name, .chat-last-message {
     margin: 0;
+}
+
+.chat-name {
     font-size: 16px;
     font-weight: bold;
 }
 
 .chat-last-message {
-    margin: 0;
     font-size: 14px;
     color: #666;
 }
 
+/* Profile Content Styles */
 .profile-content {
-    max-width: 600px; /* Adjust width as needed */
+    max-width: 600px;
     margin: auto;
     padding: 20px;
 }
@@ -184,32 +125,80 @@ p {
 }
 
 .profile-row label {
-    flex-basis: 30%; /* Adjust label width */
+    flex-basis: 30%;
     text-align: right;
     margin-right: 10px;
     align-self: center;
 }
 
 .profile-row input {
-    flex-grow: 1; /* Input fields take up remaining space */
+    flex-grow: 1;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 .profile-content button {
     padding: 10px 20px;
-    background-color: #4CAF50; /* Green background */
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 20px; /* Add some space above the button */
+    margin-top: 20px;
 }
+
+/* Button Press Effect */
 button {
-    /* Existing button styles */
-    transition: transform 0.1s ease; /* Smooth transition for the transform */
+    transition: transform 0.1s ease;
 }
 
 button:active {
-    transform: scale(0.95); /* Slightly reduce the scale of the button when active/pressed */
+    transform: scale(0.95);
+}
+
+/* Explore Content Styles */
+.explore-content {
+    /* Additional styles if needed */
+}
+
+.location-card {
+    width: 100%; /* Full width */
+    height: calc(100vh - 120px); /* Adjust based on the combined height of the toolbars */
+    position: relative;
+    overflow: hidden; /* Hide parts of the image that overflow */
+    padding-top: 30%;
+}
+
+.location-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will cover the area, potentially cropping the image */
+    object-position: center; /* Adjust the position of the image */
+}
+
+.floating-button {
+    position: absolute;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.like-button, .dislike-button {
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.like-button {
+    right: 10px;
+}
+
+.dislike-button {
+    left: 10px;
+}
+
+.floating-button img {
+    width: 100%;
+    height: auto;
 }

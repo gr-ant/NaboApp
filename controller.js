@@ -29,9 +29,26 @@ app.controller('MyController', function($scope) {
     $scope.userFood = "Pizza";
 
     $scope.chats = [
-        { name: "Alice", lastMessage: "See you soon!"},
-        { name: "Bob", lastMessage: "Thanks!"},
-        // ... other chats
+        { name: "Pizza Hut", lastMessage: "See you soon!" },
+        { name: "Art Museum", lastMessage: "Thanks!" },
+        { name: "Central Library", lastMessage: "New arrivals are available." },
+        { name: "City Park", lastMessage: "Event starts at 3 PM." },
+        { name: "The Coffee House", lastMessage: "Your order is ready." },
+        { name: "Tech World", lastMessage: "Your item has been shipped." },
+        { name: "Gourmet Bistro", lastMessage: "Reservation confirmed for 7 PM." },
+        { name: "Cinema Plex", lastMessage: "New movies this week!" },
+        { name: "Fitness Club", lastMessage: "New yoga classes available." },
+        { name: "Book Corner", lastMessage: "Book club meeting on Friday." },
+        { name: "Pizza Hut", lastMessage: "See you soon!" },
+        { name: "Art Museum", lastMessage: "Thanks!" },
+        { name: "Central Library", lastMessage: "New arrivals are available." },
+        { name: "City Park", lastMessage: "Event starts at 3 PM." },
+        { name: "The Coffee House", lastMessage: "Your order is ready." },
+        { name: "Tech World", lastMessage: "Your item has been shipped." },
+        { name: "Gourmet Bistro", lastMessage: "Reservation confirmed for 7 PM." },
+        { name: "Cinema Plex", lastMessage: "New movies this week!" },
+        { name: "Fitness Club", lastMessage: "New yoga classes available." },
+        { name: "Book Corner", lastMessage: "Book club meeting on Friday." }
     ];
     $scope.userProfile = {
         name: "John Doe",
