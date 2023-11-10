@@ -3,13 +3,65 @@ app.controller('MyController', function($scope) {
     $scope.showProfile = false;
     $scope.showExplore = false;
     $scope.showChat = false;
-    $scope.showLanding = true
+    $scope.showLanding = true;
+    $scope.showSettings = false;
+    $scope.showHelp = false;
 
+    const selectedColor = "#ffffffe1"
+    const defaultColor = "#ffaeae"
+    $scope.openLanding = function() {
+        $scope.showProfile = false;
+        $scope.showExplore = false;
+        $scope.showChat = false;
+        $scope.showLanding = true
+        $scope.showHelp = false
+        $scope.showSettings = false
+        $scope.profileButtonColor = {"background-color":selectedColor}
+        $scope.chatButtonColor = {"background-color":selectedColor}
+        $scope.exploreButtonColor = {"background-color":selectedColor}
+        $scope.helpButtonColor = {"background-color":selectedColor}
+        $scope.settingButtonColor = {"background-color":selectedColor}
+    };
     $scope.openProfile = function() {
         $scope.showProfile = true;
         $scope.showExplore = false;
         $scope.showChat = false;
         $scope.showLanding = false
+        $scope.showHelp = false
+        $scope.showSettings = false
+        $scope.profileButtonColor = {"background-color":defaultColor}
+        $scope.chatButtonColor = {"background-color":selectedColor}
+        $scope.exploreButtonColor = {"background-color":selectedColor}
+        $scope.helpButtonColor = {"background-color":selectedColor}
+        $scope.settingButtonColor = {"background-color":selectedColor}
+    };
+    $scope.openHelp = function() {
+        $scope.showProfile = false;
+        $scope.showExplore = false;
+        $scope.showChat = false;
+        $scope.showLanding = false
+        $scope.showHelp = true
+        $scope.showSettings = false
+        $scope.profileButtonColor = {"background-color":selectedColor}
+        $scope.chatButtonColor = {"background-color":selectedColor}
+        $scope.exploreButtonColor = {"background-color":selectedColor}
+        $scope.settingButtonColor = {"background-color":selectedColor}
+        $scope.helpButtonColor = {"background-color":defaultColor}
+        
+    };
+    $scope.openSettings = function() {
+        $scope.showProfile = false;
+        $scope.showExplore = false;
+        $scope.showChat = false;
+        $scope.showLanding = false
+        $scope.showHelp = false
+        $scope.showSettings = true
+        $scope.profileButtonColor = {"background-color":selectedColor}
+        $scope.chatButtonColor = {"background-color":selectedColor}
+        $scope.exploreButtonColor = {"background-color":selectedColor}
+        $scope.helpButtonColor = {"background-color":selectedColor}
+        $scope.settingButtonColor = {"background-color":defaultColor}
+        
     };
 
     $scope.openExplore = function() {
@@ -17,6 +69,13 @@ app.controller('MyController', function($scope) {
         $scope.showExplore = true;
         $scope.showChat = false;
         $scope.showLanding = false
+        $scope.showHelp = false
+        $scope.showSettings = false
+        $scope.profileButtonColor = {"background-color": selectedColor}
+        $scope.chatButtonColor = {"background-color":selectedColor}
+        $scope.exploreButtonColor = {"background-color":defaultColor}
+        $scope.settingButtonColor = {"background-color":selectedColor}
+        $scope.helpButtonColor = {"background-color":selectedColor}
     };
 
     $scope.openChat = function() {
@@ -24,6 +83,13 @@ app.controller('MyController', function($scope) {
         $scope.showExplore = false;
         $scope.showChat = true;
         $scope.showLanding = false
+        $scope.showHelp = false
+        $scope.showSettings = false
+        $scope.profileButtonColor = {"background-color":selectedColor}
+        $scope.exploreButtonColor = {"background-color:":selectedColor}
+        $scope.chatButtonColor = {"background-color":defaultColor}
+        $scope.settingButtonColor = {"background-color":selectedColor}
+        $scope.helpButtonColor = {"background-color":selectedColor}
     };
     // Sample data
     $scope.userName = "John Doe";
