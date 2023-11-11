@@ -1,5 +1,13 @@
 // In your controller.js
 app.controller('MyController', function($scope) {
+    if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    console.log("Latitude is :", position.coords.latitude);
+    console.log("Longitude is :", position.coords.longitude);
+  });
+} else {
+  console.log("Geolocation is not supported by this browser.");
+}
     $scope.showProfile = false;
     $scope.showExplore = false;
     $scope.showChat = false;
