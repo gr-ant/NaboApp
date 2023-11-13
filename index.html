@@ -13,7 +13,7 @@
 <body ng-app="myApp" ng-controller="MyController">
     <div class="top-toolbar">
         <button ng-click="openSettings()" ng-style="settingButtonColor"><img src="icons\cog.svg"></button>
-        <button ng-click="openLanding()"><h3>Nabo</h3></button>
+        <button ng-click="openLanding()">Nabo</button>
         <button ng-click="openHelp()" ng-style="helpButtonColor"><img src="icons\question.svg"></button>
     </div>
     <div class="main-content">
@@ -47,20 +47,16 @@
         
         <div ng-if="showExplore" class="explore-content">
             <div class="location-card">
-                <h1 class="overlay-heading">Two Social</h1>
                 <img src="https://lh3.googleusercontent.com/p/AF1QipOF6IBHkIeBqocAT_isR8IbjxavzmK-djtkGteg=s680-w680-h510" alt="Location" class="location-image">
-                <button class="floating-button like-button">
-                    <img src="icons/add-circle.svg" alt="Like">
-                </button>
-                <button class="floating-button dislike-button">
-                    <img src="icons/subtract-circle.svg" alt="Dislike">
-                </button>
             </div>
             <!-- More location cards as needed -->
         </div>
         <div ng-if="showChat" class="chat-list">
-            <div class="chat-item" ng-repeat="chat in chats">
-                <img src="icons/happy-face.svg" class="chat-profile-pic">
+            <div class="search-bar">
+                <input type="text" placeholder="Search messages..." ng-model="searchQuery">
+            </div>
+            <div class="message-item" ng-repeat="chat in chats | filter:searchQuery">
+                <img ng-src="{{chat.photo}}" class="chat-profile-pic">
                 <div class="chat-info">
                     <h3 class="chat-name">{{ chat.name }}</h3>
                     <p class="chat-last-message">{{ chat.lastMessage }}</p>

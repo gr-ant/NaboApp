@@ -107,6 +107,8 @@ app.controller('MyController', function($scope) {
     $scope.userCity = "New York";
     $scope.userFood = "Pizza";
 
+    $scope.searchQuery = '';
+
     $scope.chats = [
         { name: "Pizza Hut", lastMessage: "See you soon!" },
         { name: "Art Museum", lastMessage: "Thanks!" },
