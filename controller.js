@@ -5,6 +5,12 @@ app.controller('MyController', function($scope) {
     $scope.thirdColor = "#044b22"
     $scope.fourthColor = "#044b22"
     $scope.fifthColor = "#a7a4a4"
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+        });
+} else {
+  console.log("Geolocation is not supported by this browser.");
+}
     $scope.showProfile = false;
     $scope.showExplore = false;
     $scope.showChat = false;
