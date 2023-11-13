@@ -270,3 +270,103 @@ p {
     width: 100%;
     /* Other styles as necessary */
 }
+.settings-content h3 {
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.settings-content label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.checkbox-group {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.settings-content input[type="range"] {
+    width: 100%;
+    margin-top: px;
+    margin-bottom: 15px;
+}
+
+.settings-content input[type="checkbox"] {
+    margin-right: 5px;
+}
+.draggable {
+    position: absolute;
+    cursor: move;
+}
+.price-level-selector {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.price-option {
+    padding: 10px 10px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.price-option.selected {
+    background-color: #c96877;
+    color: white;
+}
+.profile-container {
+    margin-top: 50px; /* This should be equal to the height of your toolbar */
+    text-align: center;
+    padding: 10px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profile-picture img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.profile-stats div {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-weight: bold;
+}
+
+.profile-bio {
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 5px 10px;
+    margin: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

@@ -1,5 +1,10 @@
 // In your controller.js
 app.controller('MyController', function($scope) {
+    $scope.mainColor = "#ffffff"
+    $scope.secondColor = "#a13a5e"
+    $scope.thirdColor = "#044b22"
+    $scope.fourthColor = "#044b22"
+    $scope.fifthColor = "#a7a4a4"
     $scope.showProfile = false;
     $scope.showExplore = false;
     $scope.showChat = false;
@@ -7,8 +12,6 @@ app.controller('MyController', function($scope) {
     $scope.showSettings = false;
     $scope.showHelp = false;
 
-    const selectedColor = "#ffffffe1"
-    const defaultColor = "#ffaeae"
     $scope.openLanding = function() {
         $scope.showProfile = false;
         $scope.showExplore = false;
@@ -16,11 +19,11 @@ app.controller('MyController', function($scope) {
         $scope.showLanding = true
         $scope.showHelp = false
         $scope.showSettings = false
-        $scope.profileButtonColor = {"background-color":selectedColor}
-        $scope.chatButtonColor = {"background-color":selectedColor}
-        $scope.exploreButtonColor = {"background-color":selectedColor}
-        $scope.helpButtonColor = {"background-color":selectedColor}
-        $scope.settingButtonColor = {"background-color":selectedColor}
+        $scope.profileButtonColor = {"background-color":$scope.mainColor}
+        $scope.chatButtonColor = {"background-color":$scope.mainColor}
+        $scope.exploreButtonColor = {"background-color":$scope.mainColor}
+        $scope.helpButtonColor = {"background-color":$scope.mainColor}
+        $scope.settingButtonColor = {"background-color":$scope.mainColor}
     };
     $scope.openProfile = function() {
         $scope.showProfile = true;
@@ -29,11 +32,11 @@ app.controller('MyController', function($scope) {
         $scope.showLanding = false
         $scope.showHelp = false
         $scope.showSettings = false
-        $scope.profileButtonColor = {"background-color":defaultColor}
-        $scope.chatButtonColor = {"background-color":selectedColor}
-        $scope.exploreButtonColor = {"background-color":selectedColor}
-        $scope.helpButtonColor = {"background-color":selectedColor}
-        $scope.settingButtonColor = {"background-color":selectedColor}
+        $scope.profileButtonColor = {"background-color":$scope.secondColor}
+        $scope.chatButtonColor = {"background-color":$scope.mainColor}
+        $scope.exploreButtonColor = {"background-color":$scope.mainColor}
+        $scope.helpButtonColor = {"background-color":$scope.mainColor}
+        $scope.settingButtonColor = {"background-color":$scope.mainColor}
     };
     $scope.openHelp = function() {
         $scope.showProfile = false;
@@ -42,11 +45,11 @@ app.controller('MyController', function($scope) {
         $scope.showLanding = false
         $scope.showHelp = true
         $scope.showSettings = false
-        $scope.profileButtonColor = {"background-color":selectedColor}
-        $scope.chatButtonColor = {"background-color":selectedColor}
-        $scope.exploreButtonColor = {"background-color":selectedColor}
-        $scope.settingButtonColor = {"background-color":selectedColor}
-        $scope.helpButtonColor = {"background-color":defaultColor}
+        $scope.profileButtonColor = {"background-color":$scope.mainColor}
+        $scope.chatButtonColor = {"background-color":$scope.mainColor}
+        $scope.exploreButtonColor = {"background-color":$scope.mainColor}
+        $scope.settingButtonColor = {"background-color":$scope.mainColor}
+        $scope.helpButtonColor = {"background-color":$scope.secondColor}
         
     };
     $scope.openSettings = function() {
@@ -56,11 +59,11 @@ app.controller('MyController', function($scope) {
         $scope.showLanding = false
         $scope.showHelp = false
         $scope.showSettings = true
-        $scope.profileButtonColor = {"background-color":selectedColor}
-        $scope.chatButtonColor = {"background-color":selectedColor}
-        $scope.exploreButtonColor = {"background-color":selectedColor}
-        $scope.helpButtonColor = {"background-color":selectedColor}
-        $scope.settingButtonColor = {"background-color":defaultColor}
+        $scope.profileButtonColor = {"background-color":$scope.mainColor}
+        $scope.chatButtonColor = {"background-color":$scope.mainColor}
+        $scope.exploreButtonColor = {"background-color":$scope.mainColor}
+        $scope.helpButtonColor = {"background-color":$scope.mainColor}
+        $scope.settingButtonColor = {"background-color":$scope.secondColor}
         
     };
 
@@ -71,11 +74,11 @@ app.controller('MyController', function($scope) {
         $scope.showLanding = false
         $scope.showHelp = false
         $scope.showSettings = false
-        $scope.profileButtonColor = {"background-color": selectedColor}
-        $scope.chatButtonColor = {"background-color":selectedColor}
-        $scope.exploreButtonColor = {"background-color":defaultColor}
-        $scope.settingButtonColor = {"background-color":selectedColor}
-        $scope.helpButtonColor = {"background-color":selectedColor}
+        $scope.profileButtonColor = {"background-color": $scope.mainColor}
+        $scope.chatButtonColor = {"background-color":$scope.mainColor}
+        $scope.exploreButtonColor = {"background-color":$scope.secondColor}
+        $scope.settingButtonColor = {"background-color":$scope.mainColor}
+        $scope.helpButtonColor = {"background-color":$scope.mainColor}
     };
 
     $scope.openChat = function() {
@@ -85,11 +88,11 @@ app.controller('MyController', function($scope) {
         $scope.showLanding = false
         $scope.showHelp = false
         $scope.showSettings = false
-        $scope.profileButtonColor = {"background-color":selectedColor}
-        $scope.exploreButtonColor = {"background-color:":selectedColor}
-        $scope.chatButtonColor = {"background-color":defaultColor}
-        $scope.settingButtonColor = {"background-color":selectedColor}
-        $scope.helpButtonColor = {"background-color":selectedColor}
+        $scope.profileButtonColor = {"background-color":$scope.mainColor}
+        $scope.exploreButtonColor = {"background-color:":$scope.mainColor}
+        $scope.chatButtonColor = {"background-color":$scope.secondColor}
+        $scope.settingButtonColor = {"background-color":$scope.mainColor}
+        $scope.helpButtonColor = {"background-color":$scope.mainColor}
     };
     // Sample data
     $scope.userName = "John Doe";
@@ -169,4 +172,33 @@ app.controller('MyController', function($scope) {
         console.log("Profile Saved:", $scope.userProfile);
         
     };
+     // Add this inside your MyController
+    $scope.userSettings = {
+        distance: 10, // Default distance, adjust as needed
+        wheelchairAccessible: false,
+        alcohol: false,
+        smoking: false,
+        marajuana: false,
+        familyFriendly: false,
+        anonymous: false,
+        dataCollection: false,
+        companyProfileView: false,
+        userReviewVisibility: false,
+        pricelevel: String($scope.pricelevel).length
+    };
+
+    $scope.stayAnon = function () {
+        $scope.userSettings.dataCollection = false
+        $scope.userSettings.companyProfileView = false
+        $scope.userSettings.userReviewVisibility = false
+    }
+
+    $scope.removeAnon = function () {
+        $scope.userSettings.anonymous = false
+    }
+
+    $scope.downloadUserData = function() {
+        // Implement functionality to download user data
+        console.log("Downloading user data...");
+    };   
 });

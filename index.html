@@ -13,7 +13,7 @@
 <body ng-app="myApp" ng-controller="MyController">
     <div class="top-toolbar">
         <button ng-click="openSettings()" ng-style="settingButtonColor"><img src="icons\cog.svg"></button>
-        <button ng-click="openLanding()"><h1>Nabo</h1></button>
+        <button ng-click="openLanding()"><h3>Nabo</h3></button>
         <button ng-click="openHelp()" ng-style="helpButtonColor"><img src="icons\question.svg"></button>
     </div>
     <div class="main-content">
@@ -24,33 +24,31 @@
             <h1>Welcome to Nabo</h1>
             <p>Your personal guide to the city's best experiences.</p>
         </div>
-        <div ng-if="showProfile" class="profile-content">
-            <div class="profile-row">
-                <label for="name">Name:</label>
-                <input type="text" id="name" ng-model="userProfile.name">
+        <div class="profile-container" ng-if="showProfile">
+            <div class="profile-header">
+                <div class="profile-picture">
+                    <img src="Images/profilePhoto.PNG"Profile Picture">
+                </div>
+                <div class="profile-stats">
+                    <div><span class="stat-number">150</span> Clips</div>
+                    <div><span class="stat-number">1.2k</span> Connects</div>
+                    <div><span class="stat-number">300</span> Gifts</div>
+                </div>
             </div>
-            <div class="profile-row">
-                <label for="email">Email:</label>
-                <input type="email" id="email" ng-model="userProfile.email">
+            <h4>Chad Smith</h4>
+            <div class="profile-bio">
+                <p>Loving life the only way I know how!</p>
             </div>
-            <div class="profile-row">
-                <label for="age">Age:</label>
-                <input type="number" id="age" ng-model="userProfile.age">
+            <div class="profile-actions">
+                <button class="btn">Edit Profile</button>
+                <button class="btn">Share Account</button>
             </div>
-            <div class="profile-row">
-                <label for="city">Home City:</label>
-                <input type="text" id="city" ng-model="userProfile.city">
-            </div>
-            <div class="profile-row">
-                <label for="food">Favorite Food:</label>
-                <input type="text" id="food" ng-model="userProfile.favoriteFood">
-            </div>
-            <button ng-click="saveProfile()">Save</button>
-        </div>        
+        </div>
+        
         <div ng-if="showExplore" class="explore-content">
             <div class="location-card">
                 <h1 class="overlay-heading">Two Social</h1>
-                <img src="https://lh3.googleusercontent.com/p/AF1QipMYBQcTp_rV80hqwPHNVNz_hxVI2bfSVld6NVLY=s1360-w1360-h1020" alt="Location" class="location-image">
+                <img src="https://lh3.googleusercontent.com/p/AF1QipOF6IBHkIeBqocAT_isR8IbjxavzmK-djtkGteg=s680-w680-h510" alt="Location" class="location-image">
                 <button class="floating-button like-button">
                     <img src="icons/add-circle.svg" alt="Like">
                 </button>
@@ -69,12 +67,37 @@
                 </div>
             </div>
         </div>
-        <div ng-if="showSettings" class="settings-content">
-            <h2>Settings</h2>
-            <p>Configure your app settings here.</p>
-            <!-- Additional settings content -->
+    <div ng-if="showSettings" class="settings-content">
+        <!-- Filters Section -->
+        <div class="settings-filters">
+            <div class="price-level-selector" ng-init="priceLevel = '$'">
+                <span class="price-option" ng-class="{'selected': priceLevel == '$'}" ng-click="priceLevel = '$'">$</span>
+                <span class="price-option" ng-class="{'selected': priceLevel == '$$'}" ng-click="priceLevel = '$$'">$$</span>
+                <span class="price-option" ng-class="{'selected': priceLevel == '$$$'}" ng-click="priceLevel = '$$$'">$$$</span>
+            </div><br>        
+            <label for="distance-range">How far away do you want to see results:</label>
+            <input type="range" id="distance-range" ng-model="userSettings.distance" ondrop="distanceChange()">
+            <center>{{userSettings.distance}} miles</center>
+            <div class="checkbox-group">
+                <label><input type="checkbox" ng-model="userSettings.wheelchairAccessible"> Wheelchair Accessibility</label>
+                <label><input type="checkbox" ng-model="userSettings.alcohol"> Alcohol</label>
+                <label><input type="checkbox" ng-model="userSettings.smoking"> Smoking</label>
+                <label><input type="checkbox" ng-model="userSettings.marajuana"> Marijuana</label>
+                <label><input type="checkbox" ng-model="userSettings.familyFriendly"> Family Friendly</label>
+            </div>
         </div>
-
+        <!-- Privacy Section -->
+        <div class="settings-privacy">
+            <h3>Privacy</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" ng-model="userSettings.anonymous" ng-click = "stayAnon()"> Remain Anonymous</label>
+                <label><input type="checkbox" ng-model="userSettings.dataCollection" ng-click = "removeAnon()"> Allow collection of data</label>
+                <label><input type="checkbox" ng-model="userSettings.companyProfileView" ng-click = "removeAnon()"> Allow companies to view your profile</label>
+                <label><input type="checkbox" ng-model="userSettings.userReviewVisibility" ng-click = "removeAnon()"> Allow other users to see your reviews</label>
+                <button ng-click="downloadUserData()">Download your personal data</button>
+            </div>
+        </div>
+    </div>
         <!-- Help Page -->
         <div ng-if="showHelp" class="help-content">
             <h2>Help & Support</h2>
