@@ -27,7 +27,8 @@
         <div class="profile-container" ng-if="showProfile">
             <div class="profile-header">
                 <div class="profile-picture">
-                    <img src="Images/profilePhoto.PNG"Profile Picture">
+                    <img src="Images/profilePhoto.PNG">
+                    <h4>Chad Smith</h4>
                 </div>
                 <div class="profile-stats">
                     <div><span class="stat-number">150</span> Clips</div>
@@ -35,7 +36,6 @@
                     <div><span class="stat-number">300</span> Gifts</div>
                 </div>
             </div>
-            <h4>Chad Smith</h4>
             <div class="profile-bio">
                 <p>Loving life the only way I know how!</p>
             </div>
@@ -44,13 +44,108 @@
                 <button class="btn">Share Account</button>
             </div>
         </div>
-        
         <div ng-if="showExplore" class="explore-content">
             <div class="location-card">
-                <img src="https://lh3.googleusercontent.com/p/AF1QipOF6IBHkIeBqocAT_isR8IbjxavzmK-djtkGteg=s680-w680-h510" alt="Location" class="location-image">
+                <div class="image-container">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipOF6IBHkIeBqocAT_isR8IbjxavzmK-djtkGteg=s680-w680-h510" alt="Eudora Brewing Co" class="location-image">
+                </div>
+                <div class="location-details">
+                    <h2 class="location-name">Eudora Brewing Co </h2>
+                    <span class="location-category">Brewery</span>
+                    <div class="location-meta">
+                        <span class="location-distance">14.3 Miles</span>
+                        <span class="location-status">Open</span>
+                    </div>
+                    Casual brewery & taproom with a patio serving tacos, burgers & shared plates, plus own-label beers.
+                </div>
+                <div class="info-section">
+                    <div class="info-card" ng-class="{'expanded': clockExpanded}" ng-click="toggleExpand('clock')" ng-show="!menuExpanded && !mapExpanded">
+                        <img src="icons/clock.svg">
+                        <div class="extra-content" ng-if="clockExpanded">
+                            <table>
+                                <tr>
+                                    <td>Monday:</td>
+                                    <td>10 - 4</td>
+                                </tr>
+                                <tr>
+                                    <td>Tuesday:</td>
+                                    <td>10 - 4</td>
+                                </tr>
+                                <tr>
+                                    <td>Wednesday:</td>
+                                    <td>10 - 4</td>
+                                </tr>
+                                <tr>
+                                    <td>Thursday:</td>
+                                    <td>10 - 4</td>
+                                </tr>
+                                <tr>
+                                    <td>Friday:</td>
+                                    <td>10 - 4</td>
+                                </tr>
+                                <tr>
+                                    <td>Saturday:</td>
+                                    <td>10 - 4</td>
+                                </tr>
+                                <tr>
+                                    <td>Sunday:</td>
+                                    <td>10 - 4</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="info-card" ng-class="{'expanded': menuExpanded}" ng-click="toggleExpand('menu')" ng-show="!clockExpanded && !mapExpanded">
+                        <img src="icons/menu.svg">
+                        <div class="extra-content" ng-if="menuExpanded">
+                            <!-- Burgers Table -->
+                            <table>
+                                <tr>
+                                <th>Burger</th>
+                                <th></th>
+                                </tr>
+                                <tr>
+                                <td>The Eudora</td>
+                                <td>13.25</td>
+                                </tr>
+                                <tr>
+                                <td>The Hot One</td>
+                                <td>13.25</td>
+                                </tr>
+                                <tr>
+                                <td>Build Your Own</td>
+                                <td>Varies</td>
+                                </tr>
+                                <tr>
+                                <th>Sandwich</th>
+                                <th></th>
+                                </tr>
+                                <tr>
+                                <td>Turkey Club</td>
+                                <td>12.25</td>
+                                </tr>
+                                <tr>
+                                <td>Gyro</td>
+                                <td>13.80</td>
+                                </tr>
+                                <tr>
+                                <td>Chevre B.L.T.</td>
+                                <td>11.65</td>
+                                </tr>
+                                <tr>
+                                <td>Thai Chicken</td>
+                                <td>14.00</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="info-card" ng-class="{'expanded': mapExpanded}" ng-click="toggleExpand('map')" ng-show="!menuExpanded && !clockExpanded">
+                        <img src="icons/map.svg">
+                        <div class="extra-content" ng-if="mapExpanded">
+                            <img src="Images/map.PNG" class="location-image">
+                        </div>
+                    </div>
             </div>
-            <!-- More location cards as needed -->
-        </div>
+        </div>        
         <div ng-if="showChat" class="chat-list">
             <div class="search-bar">
                 <input type="text" placeholder="Search messages..." ng-model="searchQuery">
@@ -71,27 +166,107 @@
                 <span class="price-option" ng-class="{'selected': priceLevel == '$$'}" ng-click="priceLevel = '$$'">$$</span>
                 <span class="price-option" ng-class="{'selected': priceLevel == '$$$'}" ng-click="priceLevel = '$$$'">$$$</span>
             </div><br>        
-            <label for="distance-range">How far away do you want to see results:</label>
+            <h3>Preferences</h3>
+            <label for="distance-range">Distance Away: {{userSettings.distance}} miles</label>
             <input type="range" id="distance-range" ng-model="userSettings.distance" ondrop="distanceChange()">
-            <center>{{userSettings.distance}} miles</center>
-            <div class="checkbox-group">
-                <label><input type="checkbox" ng-model="userSettings.wheelchairAccessible"> Wheelchair Accessibility</label>
-                <label><input type="checkbox" ng-model="userSettings.alcohol"> Alcohol</label>
-                <label><input type="checkbox" ng-model="userSettings.smoking"> Smoking</label>
-                <label><input type="checkbox" ng-model="userSettings.marajuana"> Marijuana</label>
-                <label><input type="checkbox" ng-model="userSettings.familyFriendly"> Family Friendly</label>
-            </div>
+            <table class="settings-table">
+                <tr>
+                    <td>Location must be Wheelchair Accessible</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ng-model="userSettings.wheelchairAccessible">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Alcohol</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ng-model="userSettings.alcohol">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Smoking</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ng-model="userSettings.smoking">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marijuana</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ng-model="userSettings.marajuana">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kid Friendly</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ng-model="userSettings.familyFriendly">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+            </table>
+            
         </div>
         <!-- Privacy Section -->
         <div class="settings-privacy">
             <h3>Privacy</h3>
-            <div class="checkbox-group">
-                <label><input type="checkbox" ng-model="userSettings.anonymous" ng-click = "stayAnon()"> Remain Anonymous</label>
-                <label><input type="checkbox" ng-model="userSettings.dataCollection" ng-click = "removeAnon()"> Allow collection of data</label>
-                <label><input type="checkbox" ng-model="userSettings.companyProfileView" ng-click = "removeAnon()"> Allow companies to view your profile</label>
-                <label><input type="checkbox" ng-model="userSettings.userReviewVisibility" ng-click = "removeAnon()"> Allow other users to see your reviews</label>
-                <button ng-click="downloadUserData()">Download your personal data</button>
-            </div>
+            <table class="settings-table">
+                <tr>
+                    <td>Remain Anonymous</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ng-model="userSettings.anonymous" ng-click="stayAnon()">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Allow collection of data</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ng-model="userSettings.dataCollection" ng-click="removeAnon()">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Allow companies to view your profile</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ng-model="userSettings.companyProfileView" ng-click="removeAnon()">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Allow other users to see your reviews</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" ng-model="userSettings.userReviewVisibility" ng-click="removeAnon()">
+                            <span class="slider round"></span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <center><button class="button3" ng-click="downloadUserData()">
+                            Download your personal data
+                        </button></center>
+                    </td>
+                </tr>
+            </table> 
+            <br><br>        
         </div>
     </div>
         <!-- Help Page -->

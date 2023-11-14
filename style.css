@@ -8,6 +8,36 @@ html, body {
     font-size: 16px;
     line-height: 1.5;
     font-family: 'Roboto', sans-serif;
+    background-color: #ffffff; /* Soft background color */
+    color: #333; /* Primary text color */
+    padding-top: 50px; /* Height of the top toolbar */
+    padding-bottom: 50px; /* Height of the bottom toolbar */
+    box-sizing: border-box; /* Include padding in the height calculation */
+}
+
+.button3 {
+    justify-content: center;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#000000;
+    background-color:#ffffff;
+    text-align:center;
+    transition: all 0.2s;
+    }
+    a.button3:hover{
+        background-color:#4095c6;
+    }
+    @media all and (max-width:30em){
+        a.button3{
+        display:block;
+        margin:0.2em auto;
+    }
 }
 
 /* Center headings */
@@ -26,16 +56,15 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
     position: fixed;
     width: 100%;
     height: 50px;
     touch-action: none;
+    z-index: 10;
 }
 
 .top-toolbar {
     top: 0;
-    border-bottom:#000000;
 }
 
 .bottom-toolbar {
@@ -56,18 +85,29 @@ h1 {
     font-size: 16px;
     flex-grow: 1;
     text-align: center;
+    height:50px;
 }
 
-/* Main Content Styles */
+body {
+    padding-top: 80px; /* Height of the top toolbar */
+    padding-bottom: 50px; /* Height of the bottom toolbar */
+    box-sizing: border-box; /* Include padding in the height calculation */
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .main-content {
+    box-sizing: border-box;
+    padding-top: 60px; /* Same as the top toolbar height */
+    padding-bottom: 50px; /* Same as the bottom toolbar height */
+    min-height: calc(100vh - 100px); /* Adjusted for the top and bottom toolbars */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+    overflow-y: auto; /* Enable scrolling if content exceeds the viewport height */
+    padding: 0 10px; /* Maintain horizontal padding */
 }
-
-/* Add these styles to your existing style.css file */
 
 .search-bar input {
     width: 100%;
@@ -154,26 +194,127 @@ button {
 button:active {
     transform: scale(0.95);
 }
-
-/* Explore Content Styles */
 .explore-content {
-    /* Additional styles if needed */
+    margin-top: 50px; /* Height of top toolbar */
+    margin-bottom: 50px; /* Height of bottom toolbar */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100vw; /* Ensure it takes the full width of the viewport */
+    box-sizing: border-box; /* Include padding in the width */
 }
 
 .location-card {
-    width: 100%; /* Full width */
-    height: calc(100vh - 120px); /* Adjust based on the combined height of the toolbars */
-    position: relative;
-    overflow: hidden; /* Hide parts of the image that overflow */
-    touch-action: cross-slide-x;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+}
+
+.image-container {
+    width: 100%;
 }
 
 .location-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* This will cover the area, potentially cropping the image */
-    object-position: center; /* Adjust the position of the image */
+    display: block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
+
+.location-details {
+    padding: 10px;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.location-name {
+    font-size: 1.25rem;
+    margin: 0;
+    flex-grow: 1; /* Allows the name to fill the space */
+}
+
+.location-category {
+    margin-left: 10px; /* Spacing between name and category */
+}
+
+.location-meta {
+    display: flex;
+    align-items: center;
+}
+
+.location-distance {
+    margin-right: 10px; /* Spacing between distance and status */
+}
+
+.location-status {
+    margin-right: 50px;
+    color: #4CAF50;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-around; /* Evenly spaces the info cards */
+    padding: 10px;
+    height: 70%;
+}
+
+.info-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background: #fff;
+    margin: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+}
+
+.expanded {
+    max-height: 500px; /* Adjust as needed */
+}
+
+.extra-content {
+    padding: 10px;
+    /* Additional styles for expanded content */
+}
+
+.info-card::before {
+    content: '';
+    float: left;
+    padding-top: 100%; /* This ensures the aspect ratio is 1:1 */
+}
+
+.info-card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Clear the float */
+.info-card:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.info-card:first-child {
+    margin-left: 0;
+}
+
+.info-card:last-child {
+    margin-right: 0;
+}
+
 
 .floating-button {
     position: absolute;
@@ -323,6 +464,7 @@ p {
     margin-top: 50px; /* This should be equal to the height of your toolbar */
     text-align: center;
     padding: 10px;
+    top: 0;
 }
 
 .profile-header {
@@ -332,10 +474,12 @@ p {
 }
 
 .profile-picture img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 80px; /* Set the width */
+    height: 80px; /* Set the height */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    /* Remove any margin or padding that might be pushing the image up */
+    margin: 0;
 }
 
 .profile-stats {
@@ -370,3 +514,85 @@ p {
     justify-content: center;
     margin-top: 10px;
 }
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    right:0;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 10px; /* Space between switch and label */
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .settings-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.settings-table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.settings-table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.settings-table td:nth-child(2) {
+    text-align: right;
+}
+  

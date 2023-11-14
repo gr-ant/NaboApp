@@ -1,5 +1,20 @@
 // In your controller.js
 app.controller('MyController', function($scope) {
+
+    $scope.clockExpanded = false;
+    $scope.menuExpanded = false;
+    $scope.mapExpanded = false;
+
+    $scope.toggleExpand = function(cardType) {
+        if (cardType === 'clock') {
+            $scope.clockExpanded = !$scope.clockExpanded;
+        } else if (cardType === 'menu') {
+            $scope.menuExpanded = !$scope.menuExpanded;
+        } else if (cardType === 'map') {
+            $scope.mapExpanded = !$scope.mapExpanded;
+        }
+    };
+
     $scope.mainColor = "#ffffff"
     $scope.secondColor = "#a13a5e"
     $scope.thirdColor = "#044b22"
@@ -110,56 +125,6 @@ app.controller('MyController', function($scope) {
     $scope.searchQuery = '';
 
     $scope.chats = [
-        { name: "Pizza Hut", lastMessage: "See you soon!" },
-        { name: "Art Museum", lastMessage: "Thanks!" },
-        { name: "Central Library", lastMessage: "New arrivals are available." },
-        { name: "City Park", lastMessage: "Event starts at 3 PM." },
-        { name: "The Coffee House", lastMessage: "Your order is ready." },
-        { name: "Tech World", lastMessage: "Your item has been shipped." },
-        { name: "Gourmet Bistro", lastMessage: "Reservation confirmed for 7 PM." },
-        { name: "Cinema Plex", lastMessage: "New movies this week!" },
-        { name: "Fitness Club", lastMessage: "New yoga classes available." },
-        { name: "Book Corner", lastMessage: "Book club meeting on Friday." },
-        { name: "Pizza Hut", lastMessage: "See you soon!" },
-        { name: "Art Museum", lastMessage: "Thanks!" },
-        { name: "Central Library", lastMessage: "New arrivals are available." },
-        { name: "City Park", lastMessage: "Event starts at 3 PM." },
-        { name: "The Coffee House", lastMessage: "Your order is ready." },
-        { name: "Tech World", lastMessage: "Your item has been shipped." },
-        { name: "Gourmet Bistro", lastMessage: "Reservation confirmed for 7 PM." },
-        { name: "Cinema Plex", lastMessage: "New movies this week!" },
-        { name: "Fitness Club", lastMessage: "New yoga classes available." },
-        { name: "Book Corner", lastMessage: "Book club meeting on Friday." },
-        { name: "Pizza Hut", lastMessage: "See you soon!" },
-        { name: "Art Museum", lastMessage: "Thanks!" },
-        { name: "Central Library", lastMessage: "New arrivals are available." },
-        { name: "City Park", lastMessage: "Event starts at 3 PM." },
-        { name: "The Coffee House", lastMessage: "Your order is ready." },
-        { name: "Tech World", lastMessage: "Your item has been shipped." },
-        { name: "Gourmet Bistro", lastMessage: "Reservation confirmed for 7 PM." },
-        { name: "Cinema Plex", lastMessage: "New movies this week!" },
-        { name: "Fitness Club", lastMessage: "New yoga classes available." },
-        { name: "Book Corner", lastMessage: "Book club meeting on Friday." },{ name: "Pizza Hut", lastMessage: "See you soon!" },
-        { name: "Art Museum", lastMessage: "Thanks!" },
-        { name: "Central Library", lastMessage: "New arrivals are available." },
-        { name: "City Park", lastMessage: "Event starts at 3 PM." },
-        { name: "The Coffee House", lastMessage: "Your order is ready." },
-        { name: "Tech World", lastMessage: "Your item has been shipped." },
-        { name: "Gourmet Bistro", lastMessage: "Reservation confirmed for 7 PM." },
-        { name: "Cinema Plex", lastMessage: "New movies this week!" },
-        { name: "Fitness Club", lastMessage: "New yoga classes available." },
-        { name: "Book Corner", lastMessage: "Book club meeting on Friday." },{ name: "Pizza Hut", lastMessage: "See you soon!" },
-        { name: "Art Museum", lastMessage: "Thanks!" },
-        { name: "Central Library", lastMessage: "New arrivals are available." },
-        { name: "City Park", lastMessage: "Event starts at 3 PM." },
-        { name: "The Coffee House", lastMessage: "Your order is ready." },
-        { name: "Tech World", lastMessage: "Your item has been shipped." },
-        { name: "Gourmet Bistro", lastMessage: "Reservation confirmed for 7 PM." },
-        { name: "Cinema Plex", lastMessage: "New movies this week!" },
-        { name: "Fitness Club", lastMessage: "New yoga classes available." },
-        { name: "Book Corner", lastMessage: "Book club meeting on Friday." },
-        { name: "Pizza Hut", lastMessage: "See you soon!" },
-        { name: "Art Museum", lastMessage: "Thanks!" },
         { name: "Central Library", lastMessage: "New arrivals are available." },
         { name: "City Park", lastMessage: "Event starts at 3 PM." },
         { name: "The Coffee House", lastMessage: "Your order is ready." },
