@@ -13,7 +13,7 @@
 <body ng-app="myApp" ng-controller="MyController">
     <div class="top-toolbar">
         <button ng-click="openSettings()" ng-style="settingButtonColor"><img src="icons\cog.svg"></button>
-        <button ng-click="openLanding()">Nabo</button>
+        <button ng-click="openLanding()"><b>Nabo</b></button>
         <button ng-click="openHelp()" ng-style="helpButtonColor"><img src="icons\question.svg"></button>
     </div>
     <div class="main-content">
@@ -45,111 +45,167 @@
             </div>
         </div>
         <div ng-if="showExplore" class="explore-content">
-            <div class="location-card">
-                <div class="image-container">
-                    <img src="https://lh3.googleusercontent.com/p/AF1QipOF6IBHkIeBqocAT_isR8IbjxavzmK-djtkGteg=s680-w680-h510" alt="Eudora Brewing Co" class="location-image">
+            <div class="card-container">
+                <div class="swipe-card" ng-swipe-right="swipeRight(card)" ng-swipe-left="swipeLeft(card)">
+                    <div class="location-card">
+                        <div class="image-container">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipOF6IBHkIeBqocAT_isR8IbjxavzmK-djtkGteg=s680-w680-h510" alt="Eudora Brewing Co" class="location-image">
+                        </div>
+                        <div class="location-details">
+                            <h2 class="location-name">Eudora Brewing Co </h2>
+                            <span class="location-category">Brewery</span>
+                            <div class="location-meta">
+                                <span class="location-distance">14.3 Miles</span>
+                                <span class="location-status">Open</span>
+                            </div>
+                            Casual brewery & taproom with a patio serving tacos, burgers & shared plates, plus own-label beers.
+                        </div>
+                        <div class="info-section">
+                            <div class="info-card" ng-class="{'expanded': clockExpanded}" ng-click="toggleExpand('clock')" ng-show="!menuExpanded && !mapExpanded && !drinkExpanded && !appsExpanded"">
+                                <img src="icons/clock.svg">
+                                <div class="extra-content" ng-if="clockExpanded">
+                                    <table>
+                                        <tr>
+                                            <td>Monday:</td>
+                                            <td>10 - 4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tuesday:</td>
+                                            <td>10 - 4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Wednesday:</td>
+                                            <td>10 - 4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Thursday:</td>
+                                            <td>10 - 4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Friday:</td>
+                                            <td>10 - 4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturday:</td>
+                                            <td>10 - 4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sunday:</td>
+                                            <td>10 - 4</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="info-card" ng-class="{'expanded': menuExpanded}" ng-click="toggleExpand('menu')" ng-show="!clockExpanded && !mapExpanded && !drinkExpanded && !appsExpanded"">
+                                <img src="icons/menu.svg">
+                                <div class="extra-content" ng-if="menuExpanded">
+                                    <!-- Burgers Table -->
+                                    <table>
+                                        <tr>
+                                        <th>Burger</th>
+                                        <th></th>
+                                        </tr>
+                                        <tr>
+                                        <td>The Eudora</td>
+                                        <td>13.25</td>
+                                        </tr>
+                                        <tr>
+                                        <td>The Hot One</td>
+                                        <td>13.25</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Build Your Own</td>
+                                        <td>Varies</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Sandwich</th>
+                                        <th></th>
+                                        </tr>
+                                        <tr>
+                                        <td>Turkey Club</td>
+                                        <td>12.25</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Gyro</td>
+                                        <td>13.80</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Chevre B.L.T.</td>
+                                        <td>11.65</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Thai Chicken</td>
+                                        <td>14.00</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="info-card" ng-class="{'expanded': drinkExpanded}" ng-click="toggleExpand('drink')" ng-show="!menuExpanded && !clockExpanded && !mapExpanded && !appsExpanded"">
+                                <img src="icons/beer.svg">
+                                <div class="extra-content" ng-if="drinkExpanded">
+                                    <table>
+                                        <tr>
+                                            <td>House Rootbeer</td>
+                                            <td>$5.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lager</td>
+                                            <td>$4.50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Moscow Mule</td>
+                                            <td>$3.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bees Knees</td>
+                                            <td>$6.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Porter</td>
+                                            <td>$8.50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stout</td>
+                                            <td>$7.95</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Soda</td>
+                                            <td>$2.00</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="info-card" ng-class="{'expanded': mapExpanded}" ng-click="toggleExpand('map')" ng-show="!menuExpanded && !clockExpanded && !drinkExpanded && !appsExpanded">
+                                <img src="icons/map.svg">
+                                <div class="extra-content" ng-if="mapExpanded">
+                                    <img src="Images/map.PNG" class="location-image">
+                                </div>
+                            </div>
+                            <div class="info-card" ng-class="{'expanded': appsExpanded}" ng-click="toggleExpand('apps')" ng-show="!menuExpanded && !clockExpanded && !drinkExpanded && !mapExpanded">
+                                <img src="icons/apps.svg">
+                                <div class="extra-content ec-img" ng-if="appsExpanded">
+                                    <table style="color:white">
+                                        <tr>
+                                            <td>IconLink<a href="http://www.facebook.com/eudorabrewingcompany"><img src="icons/facebook.svg"></a></td>
+                                            <td>IconLink<a href="http://instagram.com/eudorabrewingcompany"><img src="icons/instagram.svg"></a></td>
+                                            <td>IconLink<a href="http://twitter.com/eudorabrewingco"><img src="icons/twitter.svg"></a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                  <div class="icon-heart" ng-show="card.showHeart"></div>
+                  <div class="icon-x" ng-show="card.showX"></div>
                 </div>
-                <div class="location-details">
-                    <h2 class="location-name">Eudora Brewing Co </h2>
-                    <span class="location-category">Brewery</span>
-                    <div class="location-meta">
-                        <span class="location-distance">14.3 Miles</span>
-                        <span class="location-status">Open</span>
-                    </div>
-                    Casual brewery & taproom with a patio serving tacos, burgers & shared plates, plus own-label beers.
-                </div>
-                <div class="info-section">
-                    <div class="info-card" ng-class="{'expanded': clockExpanded}" ng-click="toggleExpand('clock')" ng-show="!menuExpanded && !mapExpanded">
-                        <img src="icons/clock.svg">
-                        <div class="extra-content" ng-if="clockExpanded">
-                            <table>
-                                <tr>
-                                    <td>Monday:</td>
-                                    <td>10 - 4</td>
-                                </tr>
-                                <tr>
-                                    <td>Tuesday:</td>
-                                    <td>10 - 4</td>
-                                </tr>
-                                <tr>
-                                    <td>Wednesday:</td>
-                                    <td>10 - 4</td>
-                                </tr>
-                                <tr>
-                                    <td>Thursday:</td>
-                                    <td>10 - 4</td>
-                                </tr>
-                                <tr>
-                                    <td>Friday:</td>
-                                    <td>10 - 4</td>
-                                </tr>
-                                <tr>
-                                    <td>Saturday:</td>
-                                    <td>10 - 4</td>
-                                </tr>
-                                <tr>
-                                    <td>Sunday:</td>
-                                    <td>10 - 4</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="info-card" ng-class="{'expanded': menuExpanded}" ng-click="toggleExpand('menu')" ng-show="!clockExpanded && !mapExpanded">
-                        <img src="icons/menu.svg">
-                        <div class="extra-content" ng-if="menuExpanded">
-                            <!-- Burgers Table -->
-                            <table>
-                                <tr>
-                                <th>Burger</th>
-                                <th></th>
-                                </tr>
-                                <tr>
-                                <td>The Eudora</td>
-                                <td>13.25</td>
-                                </tr>
-                                <tr>
-                                <td>The Hot One</td>
-                                <td>13.25</td>
-                                </tr>
-                                <tr>
-                                <td>Build Your Own</td>
-                                <td>Varies</td>
-                                </tr>
-                                <tr>
-                                <th>Sandwich</th>
-                                <th></th>
-                                </tr>
-                                <tr>
-                                <td>Turkey Club</td>
-                                <td>12.25</td>
-                                </tr>
-                                <tr>
-                                <td>Gyro</td>
-                                <td>13.80</td>
-                                </tr>
-                                <tr>
-                                <td>Chevre B.L.T.</td>
-                                <td>11.65</td>
-                                </tr>
-                                <tr>
-                                <td>Thai Chicken</td>
-                                <td>14.00</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="info-card" ng-class="{'expanded': mapExpanded}" ng-click="toggleExpand('map')" ng-show="!menuExpanded && !clockExpanded">
-                        <img src="icons/map.svg">
-                        <div class="extra-content" ng-if="mapExpanded">
-                            <img src="Images/map.PNG" class="location-image">
-                        </div>
-                    </div>
-            </div>
+              </div>
         </div>        
         <div ng-if="showChat" class="chat-list">
-            <div class="search-bar">
-                <input type="text" placeholder="Search messages..." ng-model="searchQuery">
-            </div>
+            <center>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search messages..." ng-model="searchQuery">
+                </div>
+            </center>
             <div class="message-item" ng-repeat="chat in chats | filter:searchQuery">
                 <img ng-src="{{chat.photo}}" class="chat-profile-pic">
                 <div class="chat-info">
@@ -161,12 +217,12 @@
     <div ng-if="showSettings" class="settings-content">
         <!-- Filters Section -->
         <div class="settings-filters">
+            <h3>Preferences</h3>
             <div class="price-level-selector" ng-init="priceLevel = '$'">
                 <span class="price-option" ng-class="{'selected': priceLevel == '$'}" ng-click="priceLevel = '$'">$</span>
                 <span class="price-option" ng-class="{'selected': priceLevel == '$$'}" ng-click="priceLevel = '$$'">$$</span>
                 <span class="price-option" ng-class="{'selected': priceLevel == '$$$'}" ng-click="priceLevel = '$$$'">$$$</span>
             </div><br>        
-            <h3>Preferences</h3>
             <label for="distance-range">Distance Away: {{userSettings.distance}} miles</label>
             <input type="range" id="distance-range" ng-model="userSettings.distance" ondrop="distanceChange()">
             <table class="settings-table">

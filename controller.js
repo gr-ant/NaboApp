@@ -1,9 +1,23 @@
 // In your controller.js
 app.controller('MyController', function($scope) {
 
+    $scope.swipeRight = function(card) {
+        card.showHeart = true;
+        // Logic to animate card off-screen to the right
+        // Logic to bring in new card from the left
+      };
+      
+      $scope.swipeLeft = function(card) {
+        card.showX = true;
+        // Logic to animate card off-screen to the left
+        // Logic to bring in new card from the right
+      };      
+
     $scope.clockExpanded = false;
     $scope.menuExpanded = false;
     $scope.mapExpanded = false;
+    $scope.drinkExpanded = false;
+    $scope.appsExpanded = false;
 
     $scope.toggleExpand = function(cardType) {
         if (cardType === 'clock') {
@@ -12,11 +26,15 @@ app.controller('MyController', function($scope) {
             $scope.menuExpanded = !$scope.menuExpanded;
         } else if (cardType === 'map') {
             $scope.mapExpanded = !$scope.mapExpanded;
+        } else if (cardType === 'drink') {
+            $scope.drinkExpanded = !$scope.drinkExpanded;
+        } else if (cardType === 'apps') {
+            $scope.appsExpanded = !$scope.appsExpanded
         }
     };
 
     $scope.mainColor = "#ffffff"
-    $scope.secondColor = "#a13a5e"
+    $scope.secondColor = "#a7a4a4"
     $scope.thirdColor = "#044b22"
     $scope.fourthColor = "#044b22"
     $scope.fifthColor = "#a7a4a4"
